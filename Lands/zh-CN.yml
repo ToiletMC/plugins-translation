@@ -1,0 +1,916 @@
+# Here you can edit all chat messages
+# GUI items and menus can be found in <language>_gui.yml
+# 
+# If you encounter any issues or have questions, contact plugin support.
+# Plugin page: https://www.spigotmc.org/resources/authors/315463/
+# Discord: https://discord.gg/B4MAJVk
+# 
+# ###############################
+# About chat message type system:
+# Does only work for messages in
+# "message" or "command" section.
+# ###############################
+# 
+# You can use some codes to set the type
+# of a message to title, actionbar or chat.
+# How does it work:
+# 
+# For example we want to print a message as a title:
+# Set message to: '#t#Title[newline]Subtitle'(Set "#t#" in front of it; use [newline] to set the subtitle)
+# 
+# You also send a message at the actionbar:
+# Set message to: '#a#This is a actionbar message.'
+# (Set #a# in front of it.)
+# 
+# More information: https://github.com/Angeschossen/General/wiki/Messages
+
+
+
+general:
+  prefix:
+    normal: ''
+    help: '&7用法: '
+  wYes: '&a确认'
+  wNo: '&c取消'
+  none: '&8无'
+  disabled: '&c关闭'
+  wilderness: 荒野
+  unlimited: '&a无限制'
+  land:
+    title:
+      land: '&f城镇领主：&3 %owner%&f.'
+      safezone: '&f安全区域，可以松一口气了'
+    default-area: 默认区域
+  time:
+    days: 天
+    hours: 小时
+    minutes: 分钟
+    seconds: 秒
+  status:
+    online: '&a在线'
+    offline: '&c离线'
+  top:
+    title: '&f-----<- &5城镇排行 &8(&f总计:&b {total}&8) &f->-----'
+    entry: '&c#{pos} &a{land} &fBalance:&e ${value}'
+    next-page: '&fNext page: &8/&2Lands top {next}'
+    last-updated: '&f上一次更新: {time} &f前'
+    footer: '&f-----<- &5城镇排行 &8(&f总计:&b {total}&8) &f->-----'
+  integration:
+    dynmap:
+      land:
+        description: '<div class="\&quot;infowindow\&quot;"><span style="font-size:
+          200%;"><span style="color: #00ff00;">{land}</span><br /></span>{title}<br
+          /><br /> Owner: <span style="font-weight: bold; color: #ff0000;">{owner}</span><br
+          />Members: <span style="font-weight: bold;">{members}</span></div>'
+        spawn: '<p><span style="font-size: 120%; color: #339966;"><span style="font-size:
+          120%;">Spawnpoint</span></span></p><p>Open to visitors: {public}</p>'
+  sign:
+    topLand:
+      line-1: '&c#&l{place}'
+      line-2: '&8<&2 {land} &8>'
+      line-3: '&f领主 {owner}'
+      line-4: '&f存款:&3 ${value}'
+    noLand:
+      line-1: ' '
+      line-2: '&c没有城镇'
+      line-3: '&c以示.'
+      line-4: ' '
+    rent:
+      line-2: '&6Rent {area}'
+      line-3: '&c${cost} &8/ &5{time}'
+      line-4: '&8Max: {max}'
+    sell:
+      area:
+        line-2: '&aBuy'
+        line-3: '&7Area&6 {area}'
+        line-4: '&c${cost}'
+      land:
+        line-2: '&aBuy'
+        line-3: '&7Land&2 {land}'
+        line-4: '&c${cost}'
+    rented:
+      line-2: '&7Area&6 {area}'
+      line-3: '&7{player}'
+      line-4: '&5{time} &7left'
+    sold:
+      area:
+        line-2: '&7Area&6 {area}'
+        line-3: '&aSold &7to'
+        line-4: '&7{player}'
+      land:
+        line-2: '&7Land&2 {land}'
+        line-3: '&aSold &7to'
+        line-4: '&7{player}'
+  autoAction:
+    claim: '&a区块划分'
+  map:
+    yours: '&a▉ '
+    others: '&c▉ '
+    friendly: '&5▉ '
+    current-location: '&e▉ '
+    wilderness: '&2▉ '
+    info:
+      wilderness: ' &2▉ &f= 荒野'
+      yours: ' &a▉ &f= 属于您'
+      trusted: ' &5▉ &f= 属于您朋友'
+      others: ' &c▉ &f= 属于其他人'
+      position: ' &e▉ &f= 脚下的位置'
+    hover:
+      wilderness: '&7This chunk is wilderness. Click to claim it.'
+      yours: '&7This land is owned by you. Click to show information about land&3
+        {land}&7.'
+      trusted: '&7You''re trusted in this land. Click to show information about land&3
+        {land}&7.'
+      others: '&7You''re not trusted in this land. Click to show information about
+        land&3 {land}&7.'
+      position: '&7This is your current position.'
+  inbox:
+    general:
+      created: '&8{0}: &f城镇已创建'
+    member:
+      join: '&8{0}: &f{1}已加入'
+      leave: '&8{0}: &f{1}离开了'
+      ban: '&8{0}: &c{1}被驱逐了'
+    economy:
+      upkeep:
+        warning: '&8{0}: &c保护费支付失败: {1}T'
+        unclaimed: '&8{0}: &c由于无法支付保护费 {1}T，上一个购买的区块 (X: {2} Z: {3}) 已被回收'
+        paid: '&8{0}: &f支付保护费: {1}T'
+      bank:
+        withdraw: '&8{0}: &c{1} 取出了 {2}T -> 银行存款 = {3}T'
+        deposit: '&8{0}: &f{1} 存入了 {2}T -> 银行存款 = {3}T'
+      taxes:
+        warning: '&8{0}: &c{1}没有纳税'
+        untrusted: '&8{0}: &c{1}没有及时纳税，已被逐出城镇'
+        received: '&8{0}: &f已收到成员缴纳的 {1}T 城镇税 -> 银行存款 = {2}T'
+    war:
+      declaration:
+        sent: '&8{0}: &f宣战 {1}: &8/Wars info'
+        received: '&8{0}: &c{1} &c向我们宣战: &8/Wars info'
+        mutual:
+          sent: '&8{0}: &f已向{1}发送战争请求，&f他们需要接受战争'
+          received: '&8{0}: &c{1}&c发起了城镇请求，接受战争: &8/&3Wars declare {2}'
+      surrender:
+        sent: '&8{0}: &c好吧，打不过就投降，支付{1}T向敌人致敬！'
+        received: '&8{0}: &f{1} &f投降了，他们支付了{2}T向我们致敬！'
+      end:
+        won: '&8{0}: 耶！我们在这场战争中碾碎{1}名敌军'
+        lost: '&8{0}: 哦不，我们在这场战争中痛失{1}名友军，厚葬！'
+        draw: '&8{0}: 战争以平局结束，杀敌{1}名但失去{2}名友军，战争的意义归于何处？'
+  wars:
+    nametag:
+      enemy: '&c敌人 &8| '
+      ally: '&a友军 &8| '
+    object:
+      enemy: '&cEnemy'
+      ally: '&aAlly'
+  teleportation:
+    bossbar: 请稍后，马上就好！
+  area:
+    description:
+      default: '&7This is the default area. New claims will belong to this area.'
+      sub: '&7This is a sub area, which can have special flags and members.'
+      rented: '&7This area is rented by player {player}.'
+      sold: '&7This area is sold to player {player}.'
+help:
+  command:
+    help: '[T]&8/&3Lands help &8[&3页码&8] - &f获取帮助[H]&7点击复制[/H][SC]lands help[/SC][/T]'
+    edit: '[T]&8/&3Lands edit &8<&3城镇&8> &8- &f进入城镇编辑模式[H]&7The edit land is used
+      for commands like /Lands claim. &7Click to copy.[/H][SC]lands edit[/SC][/T]'
+    claim: '[T]&8/&3Lands claim &8[&3区域, auto(自动)&8] - &f购买区块[H]&7Claim the chunk
+      at your current position. You can also specify a land to which this claim should
+      go to. &7Click to copy.[/H][SC]lands claim[/SC][/T]'
+    create: '[T]&8/&3Lands create &8<&3名字&8> - &f创造新的城镇[H]&7Click to copy.[/H][SC]lands
+      create[/SC][/T]'
+    leave: '[T]&8/&3Lands leave &8[&3城镇&8] &8- &f离开区域或城镇[H]&7If you don''t specify
+      a land, you''ll leave the area at your current position. &7Click to copy.[/H][SC]lands
+      leave[/SC][/T]'
+    unclaim: '[T]&8/&3Lands unclaim &8- &f释放区块[H]&7This also supports /Lands selection.
+      &7Click to copy.[/H][SC]lands unclaim[/SC][/T]'
+    delete: '[T]&8/&3Lands delete &8<&3城镇&8> &8- &f解散城镇[H]&7Click to copy.[/H][SC]lands
+      delete[/SC][/T]'
+    trust: '[T]&8/&3Lands trust &8<&3玩家&8> [&3区域&8] - &f邀请新成员[H]&7Use * as the area
+      name to trust the player to the whole land. &7Click to copy.[/H][SC]lands trust[/SC][/T]'
+    untrust: '[T]&8/&3Lands untrust &8[&3区域&8] - &f踢出成员[H]&7Use * as the area name
+      to untrust the player from the whole land. &7Click to copy.[/H][SC]lands untrust[/SC][/T]'
+    setRole: '[T]&8/&3Lands setRole &8<&3玩家&8> &8<&3区域&8> <&3角色&8> - &f分配角色[H]&7Click
+      to copy.[/H][SC]lands setrole[/SC][/T]'
+    accept: '[T]&8/&3Lands accept &8<&3城镇&8> - &f接受邀请[H]&7You can view all received
+      invites by executing /Lands invites. &7Click to copy.[/H][SC]lands accept[/SC][/T]'
+    deny: '[T]&8/&3Lands deny &8<&3城镇&8> - &f拒绝邀请[H]&7Click to copy.[/H][SC]lands
+      deny[/SC][/T]'
+    view: '[T]&8/&3Lands view &8[&3permanent&8] &8- &f有关区块的信息[H]&7This command will
+      visualize nearby claims too. &7Click to copy.[/H][SC]lands view[/SC][/T]'
+    menu: '[T]&8/&3Lands menu &8[&3here&8] &8- &f城镇 / 区域菜单[H]&7Click to copy.[/H][SC]lands
+      menu[/SC][/T]'
+    setSpawn: '[T]&8/&3Lands setspawn - &f设置传送点[H]&7Click to copy.[/H][SC]lands setspawn[/SC][/T]'
+    spawn: '[T]&8/&3Lands spawn &8[&3城镇&8] - &f传送到城镇[H]&7Click to copy.[/H][SC]lands
+      spawn[/SC][/T]'
+    wild: '[T]&8/&3Lands wild &8[&3世界&8] &8[&3玩家&8] &8- &f传送到随机位置[H]&7Click to copy.[/H][SC]lands
+      wild[/SC][/T]'
+    top: '[T]&8/&3Lands top &8[&3页码&8] &8- &f展示排名前10的城镇[H]&7Click to copy.[/H][SC]lands
+      top[/SC][/T]'
+    selection: '[T]&8/&3Lands selection &8[&3assign(分配)&8, &3expand(扩展)&8] &8- &f启用区块选择模式[H]&7Click
+      to copy.[/H][SC]lands selection[/SC][/T]'
+    chat: '[T]&8/&3Lands chat &8[&3创造&8] <&3消息&8> &8- &f城镇聊天[H]&7Click to copy.[/H][SC]lands
+      chat[/SC][/T]'
+    rename: '[T]&8/&3Lands rename &8<&3新名字&8> - &f重命名城镇[H]&7Click to copy.[/H][SC]lands
+      rename[/SC][/T]'
+    teleport: '[T]&8/&3Lands teleport &8[&3世界&8] <&3x&8> <&3z&8> - &f传送到区块[H]&7Click
+      to copy.[/H][SC]lands teleport[/SC][/T]'
+    invites: '[T]&8/&3Lands invites &8- &f查看收到的邀请[H]&7Click to copy.[/H][SC]lands
+      invites[/SC][/T]'
+    info: '[T]&8/&3Lands info &8[&3城镇&8] - &f查看关于城镇的信息[H]&7Click to copy.[/H][SC]lands
+      info[/SC][/T]'
+    player: '[T]&8/&3Lands player &8<&3玩家&8> - &f查看有关玩家的信息[H]&7Click to copy.[/H][SC]lands
+      player[/SC][/T]'
+    map: '[T]&8/&3Lands map &8- &f查看地图[H]&7Click to copy.[/H][SC]lands map[/SC][/T]'
+    balance: '[T]&8/&3Lands balance &8[&3城镇&8] - &f查看城镇银行存款[H]&7Click to copy.[/H][SC]lands
+      balance[/SC][/T]'
+    deposit: '[T]&8/&3Lands deposit &8[&3城镇&8] <&3金额&8> - &f存钱[H]&7Click to copy.[/H][SC]lands
+      deposit[/SC][/T]'
+    withdraw: '[T]&8/&3Lands withdraw &8[&3城镇&8] <&3金额&8> - &f取钱[H]&7Click to copy.[/H][SC]lands
+      withdraw[/SC][/T]'
+    list: '[T]&8/&3Lands list &8[&3世界&8] - &f列出所有城镇[H]&7Click to copy.[/H][SC]lands
+      list[/SC][/T]'
+    assign: '[T]&8/&3Lands assign &8<&3区域&8> - &f将选择的区块分配给区域[H]&7Click to copy.[/H][SC]lands
+      assign[/SC][/T]'
+    setowner: '[T]&8/&3Lands setowner &8<&3玩家&8> - &f所有权转让[H]&7Click to copy.[/H][SC]lands
+      setowner[/SC][/T]'
+    ban: '[T]&8/&3Lands ban &8<&3城镇&8> [&3区域&8] - &f封锁玩家[H]&7Click to copy.[/H][SC]lands
+      ban[/SC][/T]'
+    unban: '[T]&8/&3Lands unban &8<&3玩家&8> [&3区域&8] - &f解除封锁[H]&7Click to copy.[/H][SC]lands
+      unban[/SC][/T]'
+    taxes: '[T]&8/&3Lands taxes &8- &f显示所有需要缴纳的税款[H]&7Click to copy.[/H][SC]lands
+      taxes[/SC][/T]'
+    wars:
+      declare: '[T]&8/&3Wars declare &8<&3land or nation&8> - &f宣战[H]&7Click to copy.[/H][SC]lands
+        unstuck[/SC][/T]'
+      info: '[T]&8/&3Wars info - &f查看当前或即将到来的战争[H]&7Click to copy.[/H][SC]lands unstuck[/SC][/T]'
+      menu: '[T]&8/&3Wars menu &8- &f打开战争菜单[H]&7Click to copy.[/H][SC]lands unstuck[/SC][/T]'
+      deny: '[T]&8/&3Wars deny &8- &f拒绝宣战邀请[H]&7Click to copy.[/H][SC]lands unstuck[/SC][/T]'
+    admin:
+      admin: '[T]&8/&3Lands admin &8<&3子命令&8> &8- &f管理员命令[H]&7Click to copy.[/H][SC]lands
+        admin[/SC][/T]'
+      debug: '[T]&8/&3Lands debug &8- &f显示加载的数据统计[H]&7Click to copy.[/H][SC]lands
+        debug[/SC][/T]'
+      safezone: '[T]&8/&3Lands safezone &8- &f配置安全区？[H]&7Click to copy.[/H][SC]lands
+        safezone[/SC][/T]'
+      reload: '[T]&8/&3Lands reload &8- &f重载配置文件[H]&7Click to copy.[/H][SC]lands reload[/SC][/T]'
+      about: '[T]&8/&3Lands about &8- &f显示有关插件的更多信息[H]&7Click to copy.[/H][SC]lands
+        about[/SC][/T]'
+    unstuck: '[T]&8/&3Lands unstuck &8- &fTeleport out of traps[H]&7In case you got
+      stuck in a land. &7Click to copy.[/H][SC]lands unstuck[/SC][/T]'
+    mod:
+      chatspy: '[T]&8/&3Lands chatspy &8[&aland&8] - &fListen to land chat[H]&7Click
+        to copy.[/H][SC]lands chatspy[/SC][/T]'
+    claims: '[T]&8/&3Lands claims &8[&3land&8] &8- &7List claims of your land[H]&7This
+      command will show you all /Lands claim''s of your land. &7Click to copy.[/H][SC]lands
+      claims[/SC][/T]'
+    rent: '[T]&8/&3Lands rent &8<&3cancel | info | remove&8> &8- &7Manage rental[H]&7With
+      this command you can manage your rent at your current position. &7Click to copy.[/H][SC]lands
+      rent[/SC][/T]'
+message:
+  world-not-exist: '&c您确定&4{world}&c是一个有效的世界名吗，&f拼错了?'
+  world-invalid: '&c在世界{world}中这未被启用，需要管理员在配置中加入'
+  feature-disabled: '&c此项特性已被管理员禁用，需要管理员在设置中开启'
+  current-war: '&f不不不，您的城镇&2{land}&f目前已经卷入了一场战争，&f请在战争结束后重试'
+  noaccess:
+    chunk: '&c您不能在{land}的区块中这样做'
+    area: '&c您不能在{land}的{area}中这样做'
+    land: '&c您不能在{land}中这样做'
+    land-not-owner: '&c您不能在{land}中这样做，请回到您自己的城镇或创建城镇再试'
+    claim: '&c您不能申领这个区块，这个区块神秘魔法保护着'
+    place: '&c您不能在{land}中放置方块'
+    break: '&c您不能在{land}中破坏方块'
+    ignite: '&c您不能在{land}中破坏方块'
+    enter: '&c您被{land}的{area}拒之门外，已传送回原位'
+    vehicle: '&c您不能在{land}乘坐交通工具'
+    fly: '&c您不能在{land}飞行'
+    edit: '&c您不能编辑{land}'
+    banned: '&c您不能进入{land}的{area}，被封锁了？'
+    teleport: '&c您不能传送到{land}，您不是他们的一员！'
+    interact:
+      general: '&c{land}的方块不愿意和您互动'
+      door: '&c您不能在{land}开门'
+      mechanism: '&c您不能使用{land}的方块'
+      container: '&c您不能使用{land}的容器'
+      villager: '&c{land}的村民不愿意和您交易'
+    combat:
+      animal: '&c请不要攻击{land}的生物，主人会很生气！'
+      pvp:
+        attacker: '&c您不能在{land}攻击其他玩家'
+        target: '&c您的目标在{land}不允许PVP，所以就不要打他们了'
+        ally: '&c您不能在这里攻击他，因为他是您同一城镇中的一员'
+        wilderness: '&c您不能攻击他，因为您在一个和谐的城镇'
+    position: '&c您不能在您当前位置对{land}这样做'
+  area:
+    exists: '&c{land}中已经存在一个名为{area}的区域了，请不要重复'
+    not-exist: '&c{land}中好像没有叫{area}的区域啊？'
+    default: '&c您不能在{land}的默认区域中做这个'
+  event:
+    fly:
+      counter: '#t#&c飞行模式将禁用{newline}&c在 &4{sec} &c秒内'
+      disabled: '&c飞行模式已关闭，这里不让飞'
+    enter:
+      land: '#t#&2&l{land}{newline}&3{title}'
+      safezone: '#t#&2&l{land}{newline}{title}'
+      pvp-warning: '#a#&c进入PVP区域'
+    leave:
+      land: '#t#&2&l啊！荒野{newline}&f感受野性'
+      safezone: '#t#&2&l啊！荒野{newline}&f感受野性'
+  claimblock:
+    dropped: '&c一些认领方块掉到了地上……您的背包没有空间啦'
+    success: '&f您获得了&3 {blocks} &f个认领方块，放置于区块中以划分区域'
+    not-owner: '&c您不能使用这个认领方块，这是属于&3 {owner}&c的'
+  blacklist:
+    untrusted: '&c您不能在此使用该命令，您还不是{land}的{area}中的一员'
+    general: '&c您不能在此区域使用该命令'
+    war: '&cYou''re not allowed to use this command while you''re engaged in a war.
+      &8Bypass permission: {permission}'
+  autoAction:
+    stopped: '&c停止您当前的自动操作，已达到{name}操作次数上限'
+    started: '&f成功开始自动{name}操作'
+    removed: '&f成功停止自动{name}操作'
+  role:
+    exists: '&c{role}角色已经存在了，换一个名字呗'
+    not-exist: '&c{role}角色好像不存在诶，拼错了？'
+    max: '&cOh天哪，您最多只能创造{max}个角色&f&m氪个Pro它不香嘛？'
+    player:
+      land: '&c您不能编辑这个玩家，身为{role}&c角色的他在{land}中比您拥有更高的优先级'
+      area: '&c您不能编辑这个玩家，身为{role}&c角色的他在{land}的{area}中比您拥有更高的优先级'
+    weight:
+      land: '&c您不能编辑{land}中的{role}角色，这个角色比您拥有更高的优先级'
+      area: '&c您不能编辑{land}的{area}中的{role}角色，这个角色比您拥有更高的优先级'
+    delete:
+      owner: '&c您怎能删除领主角色呢！难道想造反/弃位吗？'
+      entry: '&c您不能删除城镇成员角色，新成员的加入需要它'
+      visitor: '&c您不能删除城镇访客角色，难道您不欢迎客人吗？QWQ'
+  chat-action:
+    cancelled: '#t#&c&l已取消{newline}&c&l键入动作'
+    player: '&f请键入目标玩家名称'
+    land: '&f请键入城镇名称'
+    title: '&f请键入城镇的新标题（支持颜色代码）'
+    rename: '&f请键入城镇新名称（不允许空格）'
+    name: '&f请在聊天框键入名称'
+    area:
+      create: '&f请键入区域新名称'
+      delete: '&f请键入您要删除的区域名称'
+      exists: '&c{area}已经存在{land}中，换个名字呗'
+      max: '&c这个城镇被划分得四分五裂，已达{max}个区域的上限，不能再继续了！&m（除非氪金）'
+  teleportation:
+    already: '&c您已在传送进程中，请等待动作完成。'
+    started: '&f传送已开始，需要花费&5 {sec} &f秒完成，请不要乱动。'
+    cancelled: '&c啊！传送被取消，说好的不要乱动呢:('
+    chunk: '#t#&9&l已传送{newline}'
+    plugin: '&c传送被神秘力量打断，但这不是您的问题。'
+    unsafe: '&c传送已取消,目的地不安全。'
+    corrected: '&f原始传送点不安全，传送移位到安全位置。'
+command:
+  general:
+    no-permission: '&c除非您有{permission}权限，不然没办法这样做'
+    land-not-exist: '&c{land}不存在诶，嗯，不存在的'
+    area-not-exist: '&c{area}在{land}中不存在诶，拼错了么？'
+    land-not-member: '&c您好像还不是{land}所信任的成员诶'
+    no-edit-land: '&c您还没有选择您要编辑的城镇'
+    name-exists: '&c{name}已经被其他城镇或联盟抢先一步啦，换一个吧'
+    money-cost-bank: '&c不好意思，您没有足够的钱支付，请用/Lands deposit {cost}存点钱到城镇银行吧'
+    money-cost: '&c不好意思，您没有足够的钱支付，您需要{cost}T，种点土豆？'
+    swear-word: '&c嘿！不要说脏话，请友善相处'
+    action-cooldown: '&c嘿！您手速太快了，请等待{time}后再执行'
+    land-none: '&c很抱歉，您不是任何城镇的一员'
+    land-no-own: '&c很抱歉，您不是任何城镇的领主，请用/Lands create创建一个吧'
+    world-invalid: '&c您不能在当前世界这样做'
+    wilderness: '&c诶，这个区块好像是荒野，要先圈地呀'
+    player-not-exist: '&c{player}，查无此人，拼错了？'
+    player-offline: '&c当前在线玩家中似乎没有{player}这个人，拼错了？'
+    player-self: '&c大力士不能举起自己:('
+    banks-disabled: '&f银行休业了，询问一下管理员吧'
+    land-not-trusted: '&c抱歉，{player}还不是{land}的一员，需要用/Lands trust先邀请他'
+    area-not-trusted: '&c您不能在此做这个，您不是{land}的{area}中的一员'
+    invalid-number: '&c抱歉，您的键入有误，{argument}需要填上数字'
+    name:
+      character: '&c不要键入{invalid}这些奇奇怪怪的符号啦，请键入汉字或字母及数字'
+      length: '&c啊这，名字太长了，请尽量缩短一下吧，最多{max}个字符哦'
+      empty: '&c您键入了一个寂寞……请至少键入一个字符'
+      color: '&c您不能在名称中使用颜色代码，请移除'
+      number: '&cYou''re not allowed to use numbers for this name. &7Please use only
+        letters. Found number:&3 {invalid}'
+    number: '&c抱歉，您的键入有误，{argument}需要填上数字'
+  help:
+    help: '&f请使用/{cmd} help寻求帮助'
+    cmd-not-exist: '&c指令不存在 :('
+    header: '[NoPrefix][T]&7----------&6<<<<&7-[H]&7单击此处回到到上一页。[/H][C]lands help {previous}[/C][/T]
+      &2城镇帮助 &7页码&3 {page} &8/&3 {pages} [T]&7-&6>>>>&7----------[H]&7单击此处前往下一页。[/H][C]lands
+      help {next}[/C][/T]'
+    footer: |
+      [NoPrefix]
+      &7单击下面的箭头翻页。
+      [T]&7----------&6<<<<&7-[H]&7单击此处回到到上一页。[/H][C]lands help {previous}[/C][/T] &2城镇帮助 &7页码&3 {page} &8/&3 {pages} [T]&7-&6>>>>&7----------[H]&7单击此处前往下一页。[/H][C]lands help {next}[/C][/T]
+  create:
+    land-other: '&c作为领主的您不能加入其他城镇，您需要先离开{land}先'
+    max-own: '&c您不能继续创建更多的城镇了，已达{max}个城镇上限。氪金吗？'
+    success: '&f花费了{cost}T，您现在是{land}的领主啦！接下来您可以使用/Lands claim 扩张领地，也可以使用/Lands selection
+      选择区域进行扩张。'
+    broadcast: '&f{player}创建了{land}'
+  rename:
+    success: '&f成功为{land}易名为{name}，花费{cost}T'
+  edit:
+    success: '&f您进入城镇编辑模式，接下来如/Lands claim或/Lands trust均会在这片土地生效'
+  selection:
+    not-complete: '&c抱歉，您的框选并不完整，请再确认两处锚点正确放置（左击/右击进行放置）。 若想退出框选模式，您可以执行/Lands selection退出。'
+    max: '&c您框选的区块太多啦，您框选了{current}个区块而极限为{max}个'
+    enabled: '&f您已开启框选模式，左击方块设置第一个锚点，右击设置第二个锚点。 在这之后您可以对选区使用以下命令：Claim， Assign， Unclaim，
+      Leave。'
+    disabled: '#t#&5框选模式{newline}&c已关闭'
+    world: '&c两个锚点要在同一个世界，难道您想要扭曲空间吗？'
+    pos:
+      warn: '&c警告：&f这个区块被神秘力量{plugin}所管辖'
+      cancelled: '&c您不能框选这里，这个区块被神秘力量{plugin}所管理'
+      one: '#t#&5&l框选模式{newline}&b&l锚点 1 &8-> &f已设置'
+      two: '#t#&5&l框选模式{newline}&b&l锚点 2 &8-> &f已设置'
+    area:
+      conflicts: '&c发现{conflicts}与已经分配给{areas}的土地有冲突， 使用/Lands selection assgin {area}
+        confirm 确认区域覆盖范围。'
+      assigned: '&f已成功分配{chunks}区块给{area}'
+    expand:
+      enabled: '&f已成功将您框选的区域扩展到所有Y轴'
+      disabled: '&f您当前框选的区域不再扩展到所有Y轴'
+    too-far: '&c那个方块看起来离您远了点儿，靠近点吧'
+    complete: |
+      &7框选完成，接下来您可以这样做：
+        &8┏
+        &8┃ &7申领: [T]&8/&3Lands claim &8[&8CLICK&8][H]&7Click here to claim this selection.[/H][C]lands claim[/C][/T]
+        &8┃ &7释放: [T]&8/&3Lands unclaim &8[&8CLICK&8][H]&7Click here to unclaim this selection.[/H][C]lands unclaim[/C][/T]
+        &8┃ &7分配给区域: [T]&8/&3Lands assign[H]&7Assign this selection to a sub area.[/H][SC]lands assign <area>[/SC][/T]
+        &8┗
+  claim:
+    already: '&c您不能申领这个区块，这里已经是{land}的领土了'
+    auto-create: '&f这似乎没人住，已为您自动创建城镇，稍后您可以用/Lands rename更改城镇名称'
+    auto-create-fail: '&c城镇创建失败，请阅上文信息'
+    near-other: '&c这离{land}太近了点儿，走远点再试试吧，至少得离{distance}区块'
+    far-land: '&c您不能申领这个区块，区块需要紧邻{land}才行'
+    success: '&f成功为{land}申领这个区块，花费{cost}T，下次申领将花费{next}T'
+    already-claimed: '&c在您的框选中有一区块是属于{land}的土地，您不能重复申领'
+    max-chunk: '&c不好意思，城镇面积已达上限，您最多只能为您的城镇申领{max}区块'
+    selection: '&f您成功为{land}申领{chunks}区块，花费{cost}T'
+    initial-world: '&cFor land&4 {land} &cyou can only claim in its initial land creation
+      world&4 {world}&c. &7You may want to create another land for the world you''re
+      currently in ({current}): &8/&3Lands create &8<&3name&8>'
+  assign:
+    selection: '&c您需要先框选些什么，使用/Lands selection进入框选模式，框选后再重试吧'
+    default: '&c您不能将所框选的区域分配给默认区域'
+    size: '&c您框选的面积太小了，只有{current}方块，至少要有{min}方块'
+    success: '&f如您所见，您成功调整了{land}的{area}面积'
+    conflict:
+      land: '&c您的框选和{land}有冲突，请调整当前所选'
+      area: '&c您的框选和{area}有冲突，请调整当前所选'
+  leave:
+    owner: '&c您不能弃位！作为领主您只能删除城镇或移交领主权力，使用/Lands delete {land}来删除这个城镇'
+    land:
+      untrusted: '&f您未被{land}所信任'
+      success: '&f成功离开{land}'
+    area:
+      untrusted: '&f您未被{land}的{area}所信任'
+      success: '&f成功离开{land}的{area}'
+  unclaim:
+    success: '&f成功释放{land}的区块，赎回{back}T'
+    selection:
+      empty: '&c您未释放任何区块，可能其并未申领亦或是存在不允释放区块'
+      connection: '&7You unclaimed {success} / {size} chunks of this selection, &cbut
+        {failed} could not be unclaimed because it would result in other chunks being
+        disconnected from your land.'
+      partly: '&7You successfully unclaimed {success} / {size} chunks of this selection.
+        &8Please note that only chunks, which you''re allowed to unclaim, got unclaimed.'
+      success: '&7成功释放所选区块'
+      rental: '&cYou can''t unclaim this selection&7, because it contains the rented/sold
+        area&6 {area} &7of land&2 {land}&7. Tenant:&3 {player}'
+    connection: '&cYou can''t unclaim this chunk, because this would cause other chunks
+      to be disconnected from your land. &7Chunk X: {x} Z: {z} would be disconnected.'
+    rental: '&cYou can''t unclaim this chunk&7, because it contains the rented/sold
+      area&6 {area}&7. Tenant:&3 {player}'
+  delete:
+    nation: '&c您不能删除这个城镇，因为这是{nation}联盟的首府， 但如果执意如此可以使用/Nations delete删除联盟，也可使用/Nations
+      setCapital变更首府'
+    confirm: |
+      &c请点击下面以确认此操作
+
+        [T]&a确认: &8[单击][H]&7点击此处确认删除城镇{land}[/H][C]lands delete {land} confirm[/C][/T]
+    success: '&f成功删除{land}，赎回{back}T'
+    broadcast: '&f{land}已被{player}删除'
+  trust:
+    own-land: '&c{player}不能被邀请加入其他城镇，他们不允许在拥有城镇的同时加入其他城镇，如需加入需要先删除{land}'
+    max-lands: '&f不好意思，{player}拥有的城镇已达上限'
+    max-members: '{player}不能被{land}所信任，其城镇已达到{members}人口上限'
+    max: '&c{player}不能再加入更多的城镇了，已达{max}可加入城镇上限'
+    area:
+      invited: '&c{player}已经被{land}的{area}邀请过了，邀请已在{time}前发出'
+      trusted: '&f{player}已经是{land}的{area}一员了'
+      target: |
+        [T]&7Player&3 {player} &7invited you to join the area&6 {area} &7of their land&2 {land}&7.[H]&7Click to open your invites menu.[/H][C]lands invites[/C][/T] &7Taxes:&c ${tax}
+
+          [T]&2Accept &8[&8CLICK&8][H]&7Click here to accept this invite.[/H][C]lands accept {land}[/C][/T]
+          [T]&cDeny &8[&8CLICK&8][H]&7Click here to deny this invite.[/H][C]lands deny {land}[/C][/T]
+      success: '&f成功向{player}发出{land}的{area}邀请，请等待回应'
+    land:
+      invited: '&c{player}已经被{land}邀请过了，邀请已在{time}前发出'
+      trusted: '&f{player}已经是{land}的一员了'
+      target: |
+        [T]&7Player&3 {player} &7invited you to join their land&2 {land}&7.[H]&7Click to open your invites menu.[/H][C]lands invites[/C][/T] &7Taxes:&c ${tax}
+
+          [T]&2Accept &8[&8CLICK&8][H]&7Click here to accept this invite.[/H][C]lands accept {land}[/C][/T]
+          [T]&cDeny &8[&8CLICK&8][H]&7Click here to deny this invite.[/H][C]lands deny {land}[/C][/T]
+      success: '&f成功向{player}发出{land}的邀请，请等待回应'
+  untrust:
+    area:
+      already: '&f{player}并没有被{land}的{area}所信任，也未曾受邀过'
+      revoke: '&f成功撤回对{player}在{land}的{area}邀请，玩家未被信任'
+      success: '&f成功取消{player}在{land}的{area}信任'
+      rental: '&cYou can''t untrust the tenant&4 {player} &cof area&4 {area}&c. &7To
+        remove the area for rental, use &8/&3Lands rent remove &7while standing on
+        the area.'
+    land:
+      already: '&f{player}并没有被{land}所信任，也未曾受邀过'
+      revoke: '&f成功撤回{player}在{land}的邀请，玩家未被信任'
+      success: '&f成功取消{player}在{land}的信任'
+  setrole:
+    visitor: '&c不能设置为{role}角色，如果您想取消对其信任，请用/Lands untrust {player} [地点]'
+    land:
+      untrusted: '&c{player}还没有被{land}所信任，请先邀请吧'
+      success: '&f成功将{player}在{land}中设置为{role}角色'
+    area:
+      untrusted: '&cThe player&4 {player} &cisn''t trusted in the area&4 {area} &cof
+        land&4 {land}&c. &7Please trust them first.'
+      success: '&7Successfully set role&3 {role} &7for player&3 {player} &7in the
+        area&6 {area} &7of land&2 {land}&7.'
+  accept:
+    max: '&c您不能再成为更多的城镇的一部分，已达{max}上限'
+    not-exist: '&c并没有收到来自{land}的邀请，也许邀请时效已过或只是键入错误'
+    own-land: '&c您不能加入另一个城镇，您不能在拥有城镇的情况下加入其他城镇，您需要先删除{land}'
+    max-lands: '&c您不能再加入更多的城镇，已达{max}上限'
+    notification: '&f叮咚！您还有{invites}来自其他城镇的邀请待处理，使用/Land invites获悉详情'
+    area:
+      success: '&f成功同意来自{land}的{area}邀请'
+      broadcast: '&2{land} &f| {player}现在是城镇中{area}的一员了'
+    land:
+      success: '&f成功同意来自{land}的邀请'
+      broadcast: '&2{land} &f| {player}现在是城镇的一员了'
+  setowner:
+    max-lands: '&c{player}不能再造日不落帝国神话，他拥有的城镇已达{max}上限'
+    confirm: '&c请确认您要将{land}的领主权力移交至{player}，使用/Lands setowner {player} confirm来确认'
+    success: '&f{player}成为{land}的新领主！设下宴席为此花费{cost}T'
+  deny:
+    not-exist: '&c并没有收到来自{land}的邀请，也许邀请时效已过或只是键入错误'
+    success: '&f成功拒绝来自{land}的邀请'
+  teleport:
+    chunk-not-claimed: '&cThis chunk isn''t claimed &8(&fX: {x} &fZ: {z}&8)&c. &8Bypass
+      permission: lands.bypass.wilderness.teleport'
+    not-trusted: '&c妈妈没回来谁来也不开，未被{land}信任，传送被拒'
+    success: '&fSuccessfully teleported to X:&3 {x} &fZ:&3 {z} &fClaimed: {claimed}'
+  setspawn:
+    force-land: '&c您只能在自己的城镇中这样做，先前往{land}吧'
+    success: '#t#&7Spawnpoint set[newline]&7Cost:&c ${cost}'
+  spawn:
+    not-exist: '&c似乎……{land}还没有出生点，使用/Land setspawn设置一个吧'
+    not-allowed: '&c您不被允许传送至{land}出生点，要有传送权限'
+    chunk: '&fLand&2 {land} &fhasn''t set a land spawn &8(&8/&3Lands setspawn&8) &fyet.
+      &fTeleported you to the initial claim of this land.'
+    unsafe: '&c哎呀，传送点位置似乎不安全，使用/Lands setspawn来调整吧'
+    success: '&7Successfully teleported to the spawn of land&2 {land} &7Cost:&c ${cost}'
+  wild:
+    no-location: '&cCouldnt find a safe location for you that matches the filter in
+      config. &8Please adjust your max and min distance settings and set the world
+      spawn (/setworldspawn).'
+    searching: '#t#&6Searching Destination{newline}&eWaiting for Teleportation to
+      start..'
+    success: '&f随机传送成功，花费：${cost}T'
+  deposit:
+    number: '&f错误，您需要声明金额，请使用/Lands deposit &8<&3金额&8>'
+    success: '&f成功在{land}的城镇银行存入{cost}T，现在银行余额为{bank}T'
+  withdraw:
+    number: '&f错误，您需要声明金额，请使用/Lands withdraw &8<&3金额&8>'
+    balance: '&c{land}的城镇银行余额不足，仅有{bank}T，不足以满足{take}T需求'
+    success: '&f成功在{land}的城镇银行取出{cost}T，现在银行余额为{bank}T'
+  balance: '&f{land}的城镇资金为{balance}T'
+  ban:
+    area:
+      success: '&f{player}已被逐出{land}的{area}，禁止其再踏入此区域半步'
+      target: '{land}的{area}已将您放逐，您不再允许踏入这个区域半步'
+    land:
+      success: '&f{player}已被逐出{land}，禁止其再踏入城镇半步'
+      target: '&c{land}已将您放逐，您不再允许踏入城镇半步'
+  unban:
+    area:
+      success: '&f{player}在{land}的{area}中已解除放逐状态'
+      target: '&f{land}的{area}已解除您的放逐状态，现在可以进进出出啦'
+    land:
+      success: '&f{player}在{land}中已解除放逐状态'
+      target: '&f{land}已解除您的放逐状态，现在可以进进出出啦'
+  chat:
+    activated: '&f已开启城镇聊天，和成员们畅聊吧'
+    deactivated: '&f已关闭城镇聊天'
+    no-land: '&cNo land found for land chat. &fUse &8/&3Lands chat toggle &fto deativate
+      lands chat.'
+    format:
+      minecraft: '&a{land} &8| {role} &f{player} &8»&f {message}'
+      discord: '&a{land} &8| &9Discord &f{player} &8»&f {message}'
+      spy: '[NoPrefix]&8[&cChatSpy&8] &a{land} &8| {role} &7{player} &8»&f {message}'
+  view:
+    disabled: '&fYou successfully disabled the current &8/&3Lands view &fvisualization.'
+    wilderness: '&7Enabled visualization of claims. &7Your current position is wilderness.'
+    info: |
+      [NoPrefix]
+      &7---------<- &5&l城镇公示 &7->---------
+      [T]&7城镇:&a {land} &8[&8点击&8][H]&7点击以获得城镇详细信息[/H][C]lands info {land}[/C][/T]
+      &7区域:&6{area}
+        &8区块&7X: {x} Z: {z}
+        &8税收:&c{tax}T
+        &8玩家:{players}
+      &7---------<- &5&l城镇公示 &r&7->---------
+    area: |
+      [NoPrefix]
+      &7---------<- &5&lArea View &7->---------
+      [T]&7Land:&a {land} &8[&8CLICK&8][H]&7Click here to get more information about this land.[/H][C]lands info {land}[/C][/T]
+      &7Area:&6 {area}
+        &8Tax:&c ${tax}
+        &8Players:&7 {players}
+      &7---------<- &5&lArea View &r&7->---------
+  taxes:
+    none: '&f您似乎没有将要缴纳的税款'
+    upcoming:
+      header: '[NoPrefix]&7---------<- &c将要缴纳的税款 &7->---------'
+      entry: '[NoPrefix]&8- &7{land}：&c {tax}T'
+      footer: |
+        [NoPrefix]&7在接下来的{next}里您总共要缴纳{total}T的税款
+        &7余额：{balance}T
+        &7---------<- &c将要缴纳的税款 &7->---------
+    changes:
+      header: |
+        [NoPrefix]
+        &7---------<- &4税收变更 &7->---------
+        &c在一些城镇中税收似乎有了些许变动：
+      entry: '[NoPrefix]&8- &7{land}： {color}${tax} &8(变动前： {previous})'
+      footer: |
+        [NoPrefix]
+        &7距支付时间：&5 {next}
+        &7余额：{balance}T
+        &8更多信息：/Lands taxes
+        &7---------<- &4税收变更 &7->---------
+  unstuck:
+    success: '&f成功传送至最近的未申领位置'
+  rent:
+    edit: '&cYou currently can''t edit area&4 {area} &cof land&4 {land}&7, because
+      it''s rented/sold to player&3 {player}&7.'
+    tenant: '&cYou haven''t rented the area at your current position. &7Area&6 {area}
+      &7of land&2 {land} &7is not rented by you.'
+    none: '&cThe area&4 {area} &cof land&4 {land} &cat your current position is not
+      rented by anyone.'
+    status: '&cThe area&4 {area} &cof land&4 {land} &cat your current position is
+      not set for rent or sale.'
+    set:
+      land: '&cYou can''t set the whole land&4 {land} &cfor rent. &7You can either
+        create sub areas to set it for rent or you sell (line = sell) it completely.'
+      already: '&cYou currently can''t set this area for rent again. &7The area&6
+        {area} &7is currently being rented by&3 {player}&7. It will expire in&5 {time}&7.'
+      sold: '&cYou can''t set a area, which has been sold, for rent. &7The area&6
+        {area} &7has been bought by player&3 {player}&7.'
+      success: '&7You set area&6 {area} &7for rent. The tenant will pay&c ${cost}
+        &7each&5 {time}&7.'
+      invalid: |
+        &7Your line format is invalid (line: {line})
+         &81. line:&7 Lands
+         &82. line:&7 rent
+         &83. line:&7 TIME maxTime (not required)
+         &84. line:&7 costs (example: 5 = $5)
+      info: |
+        [NoPrefix]
+        &7---------<- &5&lRent Info &7->---------
+        [T]&7Land:&a {land} &8[&8CLICK&8][H]&7Click here to visualize this area.[/H][C]lands view here[/C][/T]
+         &7Area:&6 {area}
+         &7Cost:&c ${cost} &7each {time}
+         &8Max time: {max}
+        &7---------<- &5&lRent Info &r&7->---------
+    rent:
+      trusted: '&cYou can''t rent area&4 {area} &cof land&4 {land}&c. &7You''re already
+        trusted in this area.'
+      max: '&cYou can''t add any more time to your rental. &7The owner of land&2 {land}
+        &7configured a maximum of&5 {max} &7in total.'
+      add: '&7You added&5 {add} &7to your rental of area&6 {area} &7for&c ${cost}&7.
+        It will expire in&5 {time}&7.'
+      success: '&7You rented area&6 {area} &7of land&2 {land} &7for&c ${cost}&7. It
+        will expire in&5 {time}&7.'
+      info: |
+        [NoPrefix]
+        &7---------<- &5&lRented Info &7->---------
+        [T]&7Land:&a {land} &8[&8CLICK&8][H]&7Click here to visualize this area.[/H][C]lands view here[/C][/T]
+         &7Area:&6 {area}
+         &7Tenant: {player}
+         &7Time left:&5 {left}
+         &8Rent: ${cost} each {time}
+        &7---------<- &5&lRented Info &r&7->---------
+      expire: '&cYou can''t add any more time to your rental of area&4 {area}&c. &7The
+        land&2 {land} &7removed it for rental. It will expire in&5 {time}&7.'
+    cancel:
+      success: '&7You cancelled the rental of area&6 {area}&7. You no longer have
+        access to this area.'
+    remove:
+      offer:
+        success:
+          land: '&7Land&2 {land} &7is no longer able to be purchased.'
+          area: '&7Area&6 {area} &7of land&2 {land} &7is no longer able to be rented
+            or purchased.'
+      tenant:
+        success: '&7You removed the tenant&3 {player} &7from area&6 {area} &7of land&2
+          {land} &7and payed&c {cost}$ &7as compensation.'
+    confirm: |
+      &cPlease confirm that you want to pay&4 {cost}$ &cas compensation to the tenant&4 {player} &cin order to remove him:
+        [T]&aConfirm: &8[CLICK][H]&7Click here to confirm this action and payment.[/H][C]lands rent removetenant confirm[/C][/T]
+  sell:
+    sell:
+      rented: '&cYou can''t sell a area, which is being rented by a player. &7The
+        area&6 {area} &7is currently being rented by&3 {player}&7. It will expire
+        in&5 {time}&7.'
+      success:
+        area: '&7You set area&6 {area} &7for sale. Cost:&c ${cost}'
+        land: '&7You set the whole land&2 {land} &7for sale. Cost:&c ${cost}'
+      invalid: |
+        &7Your line format is invalid (line: {line})
+         &81. line:&7 Lands
+         &82. line:&7 sell
+         &83. line:&7 costs (example: 5 = $5)
+    buy:
+      success:
+        area: '&7You bought area&6 {area} &7of land&2 {land} &7for&c ${cost}&7.'
+        land: '&7You bought the land&2 {land} &7for&c ${cost}&7.'
+      info:
+        area: |
+          [NoPrefix]
+          &7---------<- &5&lArea Buy &7->---------
+          [T]&7Land:&a {land} &8[&8CLICK&8][H]&7Click here to visualize this area.[/H][C]lands view here[/C][/T]
+           &7Area:&6 {area}
+           &7Cost:&c ${cost}
+          &7---------<- &5&lArea Buy &r&7->---------
+        land: |
+          [NoPrefix]
+          &7---------<- &5&lLand Buy &7->---------
+          [T]&7Land:&a {land} &8[&8CLICK&8][H]&7Click here to visualize this land.[/H][C]lands view[/C][/T]
+          &7Cost:&c ${cost}
+          &7---------<- &5&lLand Buy &r&7->---------
+    sold: |
+      [NoPrefix]
+      &7---------<- &5&lArea Sold &7->---------
+      [T]&7Land:&a {land} &8[&8CLICK&8][H]&7Click here to visualize this area.[/H][C]lands view here[/C][/T]
+       &7Area:&6 {area}
+       &7Sold to&3 {player} &7for&c ${cost}&7.
+      &7---------<- &5&lArea Sold &7->---------
+  map:
+    header: '&7-<------------<- &6Lands Map &7->------------>-[newline]'
+    footer: '[newline]&7-<------------<- &6Lands Map &7->------------>-'
+list:
+  swear-words: []
+wars:
+  message:
+    noaccess:
+      action: '&cYou''re not allowed to do this in the war of this land. &8Flag: {flag}
+        &8Bypass permission: {bypass}'
+      pillage: '&cYou can''t pillage a land while no defenders are online. &fPlease
+        wait until a minimum of&3 {defenders} &fdefenders join.'
+    start:
+      broadcast: '&fThe war between {attacker} &fand {defender} &fstarted. It will
+        be over in&5 {time}&f.'
+      participants: |
+        &4The War has started:
+
+        &7Attacker: {attacker} &8({team_1}&8)
+        &7Defender: {defender} &8({team_2}&8)
+
+        &7The war will end in:
+        &5~{time}
+    end:
+      broadcast: '&fThe war between {attacker} &fand {defender} &fended. It took&5
+        {time}&f.'
+      surrender: '{object} &fsurrendered. The war ended and they paid&c ${tribute}
+        &fto their enemy {enemy}&f.'
+      draw: '&fThe war between {attacker} &fand {defender} &fended in a draw. It took&5
+        {time}&f.'
+      won: |
+        &aThe War is over:
+        &7The attackers &8({team}&8) &7won.
+
+        &8- &7Stats
+            &7Attacker kills:&3 {att-points}
+            &7Defender kills:&3 {def-points}
+
+        &7The war took:
+        &5~{time}
+    war-shield:
+      set: '&fThe new war shield for {object} &fwill be active for&5 {time}&f.'
+    kill:
+      target:
+        attackers: '&fOur team mate&a {attacker} &fgot killed by the defender&c {defender}&f.'
+        defenders: '&fOur team mate&a {defender} &fgot killed by the attacker&c {attacker}&f.'
+      killer:
+        attackers: '&fOur team mate&a {attacker} &fkilled the defender&c {defender}&f.'
+        defenders: '&fOur team mate&a {defender} &fkilled the attacker&c {attacker}&f.'
+  command:
+    general:
+      no-war: '&cThere aren''t any upcoming or active wars for {object}&c. &fEverything
+        is peaceful.'
+    declare:
+      not-allowed: '&cYou''re not allowed to start a war for {object}&c. &fThe leader
+        of {object} &fneeds to do this.'
+      member: '&cYou can''t declare war against {object}&c, because you or the enemy
+        leader are trusted in common lands.'
+      war-shield: '&cYou currently can''t declare war against {object}&c. &fThey have
+        a war shield for the next&5 {time}&f.'
+      no-nation: '&cYou can''t attack land&4 {land}&c. &fThey must be part of a nation
+        to be engaged in a war.'
+      no-target: '&cThere''s no land or nation with the name&4 {target}&c. &fTypo?'
+      ally: '&cYou can''t declare war against {object}&c. &fThey''re member in the
+        same nation&9 {nation}&f.'
+      broadcast: '&fThe enemy {attacker} &fdeclared war against {object}&f. Their
+        war will start in&5 {time}&f.'
+      confirm: '&cAre you sure you want to declare war against {object}&c? &fPlease
+        confirm this by executing &8/&3Wars declare {input} confirm&f.'
+      success: '&fYou &8({attacker}&8) &fsuccessfully declared war against {defender}&f.
+        War will start in&5 {time}&f.'
+      target: '&fThe enemy {attacker} &fdeclared war against {defender}&f. The war
+        will start in&5 {time}&f.'
+      mutual:
+        success: '&fYou &8({attacker}&8) &fsuccessfully sent a war declaration to
+          {defender}&f. They need to accept it now.'
+        target: |
+          &7The enemy {attacker} &7sent a war declaration against {defender} &8(&7YOU&8)&7.
+          &7If the defenders surrender during war, they will need to pay&c ${tribute} &7to the attackers.
+
+          [T]&7Accept: &8/&3Wars declare {input} &8[&8CLICK&8][H]&7Click here to accept the war declaration.[/H][C]Wars declare {input}[/C][/T]
+          [T]&7Deny: &8/&3Wars deny &8[&8CLICK&8][H]&7Click here to deny the war declaration.[/H][C]Wars deny[/C][/T]
+      already:
+        attacker: '&c分身乏术！需要先结束{object}之战先'
+        defender: '&cYou currently can''t declare war against them. &fThe target {object}
+          &fis already engaged in a war.'
+      min-players:
+        attacker: '&cYou can''t engage in a war, because {object} &cneeds more trusted
+          players. &fThe required minimum for attackers to declare war is&3 {min}
+          &fplayers.'
+        defender: '&cYou can''t declare war against {object}&c, because they need
+          more trusted players. &fThe required minimum for defenders to receive a
+          war declaration is&3 {min} &fplayers.'
+      balance: '&cCan''t send this declaration. &fThe attackers {object} &fneed a
+        minimum balance of&c ${min} &fin order to start a war.'
+    deny:
+      ongoing: '&cYou can''t deny the ongoing war against {enemy}&c. &fYou can only
+        deny war declarations for {object}&f.'
+      success: '&fYou successfully denied the war declaration for {object} &fagainst
+        the enemy {enemy}&f.'
+      attacker: '&cAttackers can''t deny their own war declaration. &7Only the defender
+        can do that.'
+    menu:
+      mutual: '&cYou can''t open the war menu right now. &fThe war declaration to
+        {object} &fhasn''t been accepted yet.'
+    info:
+      war: |
+        &4Current War:
+
+        &8- &7Attacker
+            &7Name: {attacker}
+            &7Kills: {att-points}
+
+        &8- &7Defender
+            &7Name: {defender}
+            &7Kills: {def-points}
+
+        &7The war will end in:
+        &5~{time}
+      declaration:
+        normal: |
+          &4War Declaration:
+
+          &7Attacker: {attacker}
+          &7Defender: {defender}
+
+          &7The war will start in:
+          &5~{time}
+        mutual:
+          defender: |
+            &4War Declaration:
+
+            &7Attacker: {attacker}
+            &7Defender: {defender}
+
+            &7If defenders surrender during war:
+            &7Tribute:&c ${tribute}
+
+            [T]&7Accept: &8/&3Wars declare {input} &8[&8CLICK&8][H]&7Click here to accept the war declaration.[/H][C]Wars declare {input}[/C][/T]
+            [T]&7Deny: &8/&3Wars deny &8[&8CLICK&8][H]&7Click here to deny the war declaration.[/H][C]Wars deny[/C][/T]
+          attacker: |
+            &4War Declaration:
+
+            &7Attacker: {attacker}
+            &7Defender: {defender}
+
+            &7If defenders surrender during war:
+            &7Tribute:&c ${tribute}
+
+            &cThe defender hasn''t accepted
+            &cthe declaration yet.
