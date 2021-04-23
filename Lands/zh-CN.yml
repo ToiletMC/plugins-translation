@@ -345,10 +345,10 @@ message:
       disabled: '&c飞行模式已关闭，这里不让飞'
     enter:
       land: '#t#&2&l{land}{newline}&3{title}'
-      pvp-warning: '#a#&c进入PVP区域'
+      pvp-warning: '#a#&c已进入PVP区域'
       admin: '#t#&2&l{land}[newline]{title}'
     leave:
-      land: '#t#&2&l啊！荒野{newline}&f感受野性'
+      land: '#t#&2啊，荒野！{newline}&f感受野性'
       admin: '#t#&2&lWilderness[newline]&7Feel the wild'
   claimblock:
     dropped: '&c一些认领方块掉到了地上……你的背包没有空间啦'
