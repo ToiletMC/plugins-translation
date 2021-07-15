@@ -285,9 +285,6 @@ help:
     mod:
       chatspy: '[T]&8/&3Lands chatspy &8[&aland&8] - &fListen to land chat[H]&7Click
         to copy.[/H][SC]lands chatspy[/SC][/T]'
-    claims: '[T]&8/&3Lands claims &8[&3land&8] &8- &7List claims of your land[H]&7This
-      command will show you all /Lands claim''s of your land. &7Click to copy.[/H][SC]lands
-      claims[/SC][/T]'
     rent: '[T]&8/&3Lands rent &8<&3cancel | info | remove&8> &8- &7Manage rental[H]&7With
       this command you can manage your rent at your current position. &7Click to copy.[/H][SC]lands
       rent[/SC][/T]'
@@ -313,6 +310,13 @@ help:
         rename[/SC][/T]'
       setcapital: '[T]&8/&3Nations setcapital &8- &7Set capital[H]&7Click to copy.[/H][SC]nations
         setcapital[/SC][/T]'
+      chat: '[T]&8/&3Nations chat &8[&3nation&8] <&3message&8> &8- &7Nation chat[H]&7Click
+        to copy.[/H][SC]nations chat[/SC][/T]'
+    claimlist: '[T]&8/&3Lands claimlist &8[&3land&8] &8- &7List claims of your land[H]&7This
+      command will show you all /Lands claim''s of your land. &7Click to execute.[/H][C]lands
+      claimlist[/C][/T]'
+    rentlist: '[T]&8/&3Lands rentlist&8- &7View rental listings.[H]&7View areas and
+      lands that you can rent or buy. &7Click to execute.[/H][C]lands rentlist[/C][/T]'
 message:
   world-not-exist: '&c你确定&4{world}&c是一个有效的世界名吗，&f拼错了?'
   world-invalid: '&c在世界{world}中这未被启用，需要管理员在配置中加入'
@@ -335,6 +339,8 @@ message:
       wilderness: '&cYou can''t attack this player, because he''s in wilderness and
         you''re standing in claimed land.'
     wilderness: '&cYou''re not allowed to do this in the wilderness. &8Flag: {flag}'
+    position: '&cYou''re not allowed to do this for the land&4 {land} &cat your current
+      position. &8Flag: {flag}'
   area:
     exists: '&c{land}中已经存在一个名为{area}的区域了，请不要重复'
     not-exist: '&c{land}中好像没有叫{area}的区域啊？'
@@ -350,6 +356,9 @@ message:
     leave:
       land: '#t#&2啊，荒野！{newline}&f感受野性'
       admin: '#t#&2&lWilderness[newline]&7Feel the wild'
+    level:
+      up: '#t#{object}[newline]&7leveled up: {level}'
+      down: '#t#{object}[newline]&7leveled down to: {level}'
   claimblock:
     dropped: '&c一些认领方块掉到了地上……你的背包没有空间啦'
     success: '&f你获得了&3 {blocks} &f个认领方块，放置于区块中以划分区域'
@@ -359,10 +368,6 @@ message:
     general: '&c你不能在此区域使用该命令'
     war: '&cYou''re not allowed to use this command while you''re engaged in a war.
       &8Bypass permission: {permission}'
-  autoAction:
-    stopped: '&c停止你当前的自动操作，已达到{name}操作次数上限'
-    started: '&f成功开始自动{name}操作'
-    removed: '&f成功停止自动{name}操作'
   role:
     exists: '&c{role}角色已经存在了，换一个名字呗'
     not-exist: '&c{role}角色好像不存在诶，拼错了？'
@@ -378,18 +383,6 @@ message:
       visitor: '&c你不能删除城镇访客角色，难道你不欢迎客人吗？QWQ'
       role: '&cYou can''t delete the role&4 {role} &cof your land. &7This role is
         required.'
-  chat-action:
-    cancelled: '#t#&c&l已取消{newline}&c&l键入动作'
-    player: '&f请键入目标玩家名称'
-    land: '&f请键入城镇名称'
-    title: '&f请键入城镇的新标题（支持颜色代码）'
-    rename: '&f请键入城镇新名称（不允许空格）'
-    name: '&f请在聊天框键入名称'
-    area:
-      create: '&f请键入区域新名称'
-      delete: '&f请键入你要删除的区域名称'
-      exists: '&c{area}已经存在{land}中，换个名字呗'
-      max: '&c这个城镇被划分得四分五裂，已达{max}个区域的上限，不能再继续了！&m（除非氪金）'
   teleportation:
     already: '&c你已在传送进程中，请等待动作完成。'
     started: '&f传送已开始，需要花费&5 {sec} &f秒完成，请不要乱动。'
@@ -435,6 +428,20 @@ message:
       &cLand:&4 {land}&c). &8Flag: {flag}'
     attack_monster: '&cYou''re not allowed to attack monsters here (&cArea:&4 {area}
       &cLand:&4 {land}&c). &7They also won''t be able to attack you. &8Flag: {flag}'
+  auto-action:
+    started:
+      claim: '&7Successfully started automatic claiming. Move around to claim chunks
+        while walking.'
+    stopped:
+      claim: '&7Automatic claiming has been stopped.'
+  chat-input:
+    cancelled: '#t#&c&lCancelled[newline]&c&lChat Action'
+    type:
+      player: '&7Please enter the name of the target player.'
+      land: '&7Please enter the name of the target land.'
+      title: '&7Please enter a new title for this land. Spaces are allowed.'
+      rename: '&7Please enter a new name for this land. Spaces are not allowed.'
+      name: '&7Please enter the name in chat.'
 command:
   general:
     no-permission: '&c除非你有{permission}权限，不然没办法这样做'
@@ -443,8 +450,6 @@ command:
     land-not-member: '&c你好像还不是{land}所信任的成员诶'
     no-edit-land: '&c你还没有选择你要编辑的城镇'
     name-exists: '&c{name}已经被其他城镇或联盟抢先一步啦，换一个吧'
-    money-cost-bank: '&c不好意思，你没有足够的钱支付，请用/Lands deposit {cost}存点钱到城镇银行吧'
-    money-cost: '&c不好意思，你没有足够的钱支付，你需要{cost}T，种点土豆？'
     swear-word: '&c嘿！不要说脏话，请友善相处'
     action-cooldown: '&c嘿！你手速太快了，请等待{time}后再执行'
     land-no-own: '&c很抱歉，你不是任何城镇的所有者，请用/Lands create创建一个吧'
@@ -456,7 +461,6 @@ command:
     banks-disabled: '&f银行休业了，询问一下管理员吧'
     land-not-trusted: '&c抱歉，{player}还不是{land}的一员，需要用/Lands trust先邀请他'
     area-not-trusted: '&c你不能在此做这个，你不是{land}的{area}中的一员'
-    invalid-number: '&c抱歉，你的键入有误，{argument}需要填上数字'
     name:
       character: '&c不要键入{invalid}这些奇奇怪怪的符号啦，请键入汉字或字母及数字'
       length: '&c啊这，名字太长了，请尽量缩短一下吧，最多{max}个字符哦'
@@ -464,12 +468,23 @@ command:
       color: '&c你不能在名称中使用颜色代码，请移除'
       number: '&cYou''re not allowed to use numbers for this name. &7Please use only
         letters. Found number:&3 {invalid}'
-    number: '&c抱歉，你的键入有误，{argument}需要填上数字'
     none: |
       &cYou're not a member of any land.
 
         &7Any land can invite you: &8/&3Lands trust
         [T]&7Create your own land: &8/&3Lands create[H]&7Click to copy.[/H][SC]lands create[/SC][/T]
+    money:
+      fallback: '&7Notice:&c ${cost} &7has been taken from your personal account,
+        because the bank of your land&2 {land} &7does not have enough money inside
+        it. Deposit money: [T]&8[CLICK][H]&7Click here to deposit money into the bank
+        of land {land}.[/H][SC]{cmd}[/SC][/T]'
+      failure:
+        bank: '&cYou don''t have enough to pay the cost. &7You need&c ${cost}&7. Deposit
+          money into your land bank: [T]&8/&3Lands deposit {value} &8[CLICK][H]&7Click
+          here to deposit ${cost} info your land bank.[/H][C]lands deposit {value}[/C][/T]'
+        personal: '&cYou don''t have enough to pay the cost. &7You need&c ${cost}&7.'
+    number: '&cYour input&4 {input} &cisn''t a number. &7The argument&3 {argument}
+      &7needs to be a number.'
   help:
     help: '&f请使用/{cmd} help寻求帮助'
     cmd-not-exist: '&c指令不存在 :('
@@ -518,8 +533,6 @@ command:
         &8┗
   claim:
     already: '&c你不能申领这个区块，这里已经是{land}的领土了'
-    auto-create: '&f这似乎没人住，已为你自动创建城镇，稍后你可以用/Lands rename更改城镇名称'
-    auto-create-fail: '&c城镇创建失败，请阅上文信息'
     near-other: '&c这离{land}太近了点儿，走远点再试试吧，至少得离{distance}区块'
     far-land: '&c你不能申领这个区块，区块需要紧邻{land}才行'
     success: '&f成功为{land}申领这个区块，花费{cost}T，下次申领将花费{next}T'
@@ -529,6 +542,11 @@ command:
     initial-world: '&cFor land&4 {land} &cyou can only claim in its initial land creation
       world&4 {world}&c. &7You may want to create another land for the world you''re
       currently in ({current}): &8/&3Lands create &8<&3name&8>'
+    auto-land: '&7Automatically created land&2 {land}&7, since you did not have one.
+      You can rename it by executing &8/&3Lands rename &8<&3name&8>&7.'
+    radius:
+      success: '&7You successfully claimed&3 {chunks} &7chunks in the radius of&7
+        {radius} &7chunks around you for your land&2 {land}&7.'
   assign:
     selection: '&c你需要先框选些什么，使用/Lands selection进入框选模式，框选后再重试吧'
     default: '&c你不能将所框选的区域分配给默认区域'
@@ -666,12 +684,14 @@ command:
     perm: '&cYou''re not allowed to use random teleportation in the world&4 {world}&c.
       &8You''re missing the permission {perm} for this world.'
   deposit:
-    number: '&f错误，你需要声明金额，请使用/Lands deposit &8<&3金额&8>'
     success: '&f成功在{land}的城镇银行存入{cost}T，现在银行余额为{bank}T'
+    number: '&7You need to specify an amount of money. Use &8/&3Lands deposit &8<&3amount&8>
+      &7or &8/&3Lands deposit &8<&3land&8> <&3amount&8>&7.'
   withdraw:
-    number: '&f错误，你需要声明金额，请使用/Lands withdraw &8<&3金额&8>'
     balance: '&c{land}的城镇银行余额不足，仅有{bank}T，不足以满足{take}T需求'
     success: '&f成功在{land}的城镇银行取出{cost}T，现在银行余额为{bank}T'
+    number: '&7You need to specify an amount of money. Use &8/&3Lands withdraw &8<&3amount&8>
+      &7or &8/&3Lands withdraw &8<&3land&8> <&3amount&8>&7.'
   balance: '&f{land}的城镇资金为{balance}T'
   ban:
     area:
@@ -690,12 +710,13 @@ command:
   chat:
     activated: '&f已开启城镇聊天，和成员们畅聊吧'
     deactivated: '&f已关闭城镇聊天'
-    no-land: '&cNo land found for land chat. &fUse &8/&3Lands chat toggle &fto deativate
-      lands chat.'
     format:
       minecraft: '&a{land} &8| {role} &f{player} &8»&f {message}'
       discord: '&a{land} &8| &9Discord &f{player} &8»&f {message}'
       spy: '[NoPrefix]&8[&cChatSpy&8] &a{land} &8| {role} &7{player} &8»&f {message}'
+    none: '&cNo land found for land chat.&7Use [T]&8/&3Lands chat toggle &8[&8CLICK&8][H]&7Click
+      here to deactivate the chat mode.[/H][C]lands chat toggle[/C][/T] &7to deactivate
+      lands chat.'
   view:
     disabled: '&fYou successfully disabled the current &8/&3Lands view &fvisualization.'
     wilderness: '&7Enabled visualization of claims. &7Your current position is wilderness.'
@@ -723,6 +744,9 @@ command:
         up and downwards.'
     y-level: '&7Your current position is wilderness, but this chunk is already claimed
       by land&2 {land} &7at a different y-level.'
+    tool: '&7The position you''re pointing at is wilderness. [T]&7Click here to claim
+      the chunk. &8[CLICK][H]&7Click to claim the chunk you''re pointing at.[/H][C]lands
+      claim mlc {world} {x} {z}[/C][/T]'
   taxes:
     none: '&f你似乎没有将要缴纳的税款'
     upcoming:
@@ -857,15 +881,16 @@ command:
   top:
     mode: '&cYour input&4 {input} &cisn''t a valid sort mode. &7Valid sort modes:
       {modes}'
-    title: '[NoPrefix][T]&7-----------&6<<<<&7-[C]lands top {mode} {previous}[/C][H]&7Click
-      here to view the previous page.[/H][/T] &5Top Lands [T]&7-&6>>>>&7-----------[C]lands
-      top {mode} {next}[/C][H]&7Click here to view the previous page.[/H][/T]'
     footer: |
       [NoPrefix]
       &7Click on the arrows below to navigate.
       &7Sort by [T]&7Balance &8[CLICK],[H]&7Click to sort by land bank balance.[/H][C]lands top balance[/C][/T] [T]&7Chunks &8[CLICK],[H]&7Click to sort by land chunks amount (size).[/H][C]lands top chunks[/C][/T] [T]&7Members &8[CLICK][H]&7Click to sort by land members amount.[/H][C]lands top members[/C][/T]
       &7Total lands: {total} &8| &7Last updated: {time} &7ago.
       [T]&7-----------&6<<<<&7-[C]lands top {mode} {previous}[/C][H]&7Click here to view the previous page.[/H][/T] &5Top Lands [T]&7-&6>>>>&7-----------[C]lands top {mode} {next}[/C][H]&7Click here to view the previous page.[/H][/T]
+    header: '[NoPrefix][T]&7-----------&6<<<<&7-[C]lands top {mode} {previous}[/C][H]&7Click
+      here to navigate to the previous page.[/H][/T] &5Top Lands &7Page&3 {page} &8/&3
+      {pages} [T]&7-&6>>>>&7-----------[C]lands top {mode} {next}[/C][H]&7Click here
+      to navigate to the next page.[/H][/T]'
 list:
   swear-words: []
 wars:
@@ -1043,6 +1068,8 @@ nations:
       noaccess: '&cYou''re not allowed to do this for nation&4 {nation}&c. &8Flag:
         {flag} &8Bypass: {bypass}'
       not-trusted: '&cThe land&4 {land} &cisn''t a member of your nation&4 {nation}&c.'
+      no-member: '&cYou''re not a member of this nation&c. &7None of your lands is
+        part of the nation&9 {nation}&7.'
     create:
       already: '&cYour land&4 {land} &cis already part of the nation&4 {nation}&c.
         &7Your land needs to leave it first by executing &8/&3Nations leave&7.'
@@ -1110,3 +1137,14 @@ nations:
         {nation}&7.'
       level: '&cYou can''t set the land&4 {land} &cas the new capital of nation&4
         {nation}&c. &7It needs to be at least level&3 {level} &8(&7current: {current}&8)&7.'
+    chat:
+      activated: '&7Activated nation chat. Send a message in public chat to chat with
+        your nation.'
+      deactivated: '&7Successfully deactivated nation chat.'
+      none: '&cNo nation found for nation chat. &7Use [T]&8/&3Nations chat toggle
+        &8[&8CLICK&8][H]&7Click here to deactivate the chat mode.[/H][C]nations chat
+        toggle[/C][/T] &7to deactivate nation chat.'
+      format:
+        minecraft: '[NoPrefix]&9Nation {nation} &8| &7{player} &8»&f {message}'
+        discord: '[NoPrefix]&9Nation {nation} &8| &9Discord &7{player} &8»&f {message}'
+        spy: '[NoPrefix]&8[&cChatSpy&8] &9Nation {nation} &8| &7{player} &8»&f {message}'

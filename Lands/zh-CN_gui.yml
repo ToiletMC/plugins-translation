@@ -98,6 +98,12 @@ general:
       land: '&2城镇 '
       nation: '&9联盟 '
   all: '&a全部'
+  rentables:
+    buy: '&aBuy'
+    rent: '&eRent'
+    cost: '&cCost'
+    size: '&eSize'
+    price_blocks_ratio: '&aPrice-blocks ratio'
 physical-Item:
   claim-block:
     name: '&占领区块'
@@ -114,6 +120,13 @@ physical-Item:
     - '&7区域后输入&8/&3Lands claim'
     - '&7来占领一片土地'
     material: GOLDEN_HOE
+  info:
+    name: '&eInfo Tool'
+    lore:
+    - '&7Use this tool to get'
+    - '&7information about the claim'
+    - '&7you''re pointing at.'
+    material: FEATHER
 skull:
   role:
     owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmJjMzExYTRmYjljNDkzODliNGY0NThjMjllOTY4MzI0YzU4MjNiOGE5OWVhZGUxNzQ3ODY2Yzk1YjA2NGEifX19
@@ -1225,6 +1238,17 @@ gui:
         - '&7Allow this role to trample'
         - '&7farmland?'
         material: FARMLAND
+        from: 10
+        to: 27
+      interact_trapdoor:
+        name: '&6Open Trapdoors'
+        lore:
+        - '&7Status: {enabled}'
+        - '&7Unlocked: {unlocked}'
+        - ' '
+        - '&7Allow this role to interact'
+        - '&7with trapdoors?'
+        material: OAK_TRAPDOOR
         from: 10
         to: 27
     a:
@@ -2970,6 +2994,88 @@ gui:
         - '&8- &7Current:&3 {current}'
         material: ARROW
         slot: 35
+    p:
+      placeholder_1:
+        material: GRAY_STAINED_GLASS_PANE
+        from: 1
+        to: 9
+      placeholder_2:
+        material: GRAY_STAINED_GLASS_PANE
+        from: 29
+        to: 36
+  rentables:
+    title: '&8Rentables'
+    size: 36
+    f:
+      page_previous:
+        name: '&9Previous Page'
+        lore:
+        - '&7Go to previous page:&9 {previous}'
+        - '&7Current:&3 {current}'
+        material: ARROW
+        slot: 30
+      sort:
+        name: '&7Sort by {mode}'
+        lore:
+        - '&7Click to toggle the'
+        - '&7sort mode.'
+        material: HOPPER
+        slot: 32
+      type:
+        name: '&7Type: {type}'
+        lore:
+        - '&7Click to specify'
+        - '&7if you want to rent'
+        - '&7or buy.'
+        material: COMPARATOR
+        slot: 33
+      page_next:
+        name: '&aNext Page'
+        lore:
+        - '&7Go to next page:&9 {next}'
+        - '&7Current:&3 {current}'
+        material: ARROW
+        slot: 35
+      back:
+        name: '&cBack'
+        lore:
+        - '&7Go back to'
+        - '{back}&7.'
+        material: RED_STAINED_GLASS_PANE
+        slot: 28
+    l:
+      area_rent:
+        name: '&eRent:&6 {area}'
+        lore:
+        - '&7Size: {size} blocks'
+        - '&7Cost:&c ${costs} &7per &5{time}'
+        - ' &8┗ &7Max time: {max}'
+        - ' '
+        - '&7Land: {land}'
+        - '&7Click to teleport.'
+        material: OAK_FENCE
+        from: 10
+        to: 27
+      area_buy:
+        name: '&aBuy: &6{area}'
+        lore:
+        - '&7Size: {size} blocks'
+        - '&7Cost:&c ${costs}'
+        - ' '
+        - '&7Land: {land}'
+        - '&7Click to teleport.'
+        material: OAK_FENCE
+        from: 10
+        to: 27
+      land_buy:
+        name: '&aBuy Land:&2 {land}'
+        lore:
+        - '&7Cost:&c ${costs}'
+        - ' '
+        - '&7Click to teleport.'
+        material: PLAYER_HEAD
+        from: 10
+        to: 27
     p:
       placeholder_1:
         material: GRAY_STAINED_GLASS_PANE
