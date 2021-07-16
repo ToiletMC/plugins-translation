@@ -38,8 +38,8 @@ general:
   unlimited: '&a无限制'
   land:
     title:
-      land: '&f城镇所有者：&3 %owner%&f。'
-      admin: '&7该城镇属于厕所总部服务器。'
+      land: '&f城镇所有者：&3 %owner%&f'
+      admin: '&7该城镇属于厕所总部服务器'
     default-area: 默认区域
   time:
     days: 天
@@ -78,30 +78,30 @@ general:
       line-3: ''
       line-4: ' '
     rent:
-      line-2: '&6Rent {area}'
+      line-2: '&6租赁 {area}'
       line-3: '&c{cost}T &8/ &5{time}'
-      line-4: '&8Max: {max}'
+      line-4: '&8最大: {max}'
     sell:
       area:
-        line-2: '&aBuy'
-        line-3: '&7Area&6 {area}'
+        line-2: '&a购买'
+        line-3: '&7区域&6 {area}'
         line-4: '&c{cost}T'
       land:
-        line-2: '&aBuy'
-        line-3: '&7Land&2 {land}'
+        line-2: '&a购买'
+        line-3: '&7城镇&2 {land}'
         line-4: '&c{cost}T'
     rented:
-      line-2: '&7Area&6 {area}'
+      line-2: '&7区域&6 {area}'
       line-3: '&7{player}'
-      line-4: '&5{time} &7left'
+      line-4: '&7剩余 &5{time}'
     sold:
       area:
-        line-2: '&7Area&6 {area}'
-        line-3: '&aSold &7to'
+        line-2: '&7区域&6 {area}'
+        line-3: '&a已售 &7给'
         line-4: '&7{player}'
       land:
-        line-2: '&7Land&2 {land}'
-        line-3: '&aSold &7to'
+        line-2: '&7城镇&2 {land}'
+        line-3: '&a已售 &7给'
         line-4: '&7{player}'
   autoAction:
     claim: '&a占领区块'
@@ -118,14 +118,13 @@ general:
       others: ' &c▉ &f= 属于其他人'
       position: ' &e▉ &f= 脚下的位置'
     hover:
-      wilderness: '&7This chunk is wilderness. Click to claim it.'
-      yours: '&7This land is owned by you. Click to show information about land&3
-        {land}&7.'
-      trusted: '&7You''re trusted in this land. Click to show information about land&3
-        {land}&7.'
-      others: '&7You''re not trusted in this land. Click to show information about
-        land&3 {land}&7.'
-      position: '&7This is your current position.'
+      wilderness: '&7该区块为荒野,点击可占领'
+      yours: '&7这个城镇属于你哦，点击查看关于这个城镇的信息&3
+        {land}&7'
+      trusted: '&7你已是这个城镇的一员，点击查看关于这个城镇的信息&3
+        {land}&7'
+      others: '&7你还不是这个城镇的一员， 点击查看关于这个城镇的信息&3 {land}&7'
+      position: '&7就是你脚下的土地'
   inbox:
     general:
       created: '&8{0}: &f城镇已创建'
@@ -135,12 +134,10 @@ general:
       ban: '&8{0}: &c{1}遭到了封禁'
     economy:
       upkeep:
-        warning: '&8{0}: &c保护费支付失败: {1}T'
-        paid: '&8{0}: &f支付保护费: {1}T'
-        nation: '&8{0}: &7Nation {1} failed to pay the upkeep of ${2} and has been
-          deleted.'
-        unclaim: '&8{0}: &cCouldn''t pay the complete upkeep cost of ${1}. The last
-          {2} claimed chunk(s) were unclaimed.'
+        warning: '&8{0}: &c维护费支付失败: {1}T'
+        paid: '&8{0}: &f支付维护费: {1}T'
+        nation: '&8{0}: &7{1}无法承受维护费{2}T, 宣告破产解散'
+        unclaim: '&8{0}: &c无法完全支付维护费{1}T, 最后占领的{2}区块重新释放，已成荒野'
       bank:
         withdraw: '&8{0}: &c{1} 取出了 {2}T -> 银行存款 = {3}T'
         deposit: '&8{0}: &f{1} 存入了 {2}T -> 银行存款 = {3}T'
@@ -164,29 +161,29 @@ general:
         draw: '&8{0}: 战争以平局结束，杀敌{1}名但失去{2}名友军，战争的意义归于何处？'
     nation:
       general:
-        created: '&8{0}: &7Nation created.'
+        created: '&8{0}: &7联盟确立'
       member:
-        join: '&8{0}: &7Land {1} joined.'
-        leave: '&8{0}: &7Land {1} left.'
+        join: '&8{0}: &7{1}已加入'
+        leave: '&8{0}: &7{1}已离开'
       economy:
         upkeep:
-          warning: '&8{0}: &cCouldn''t pay upkeep cost: ${1}'
-          paid: '&8{0}: &7Paid upkeep cost: ${1}'
+          warning: '&8{0}: &c无法支付保护费：{1}T'
+          paid: '&8{0}: &7已支付保护费：{1}T'
         taxes:
-          warning: '&8{0}: &cLand {1} couldn''t pay taxes.'
-          untrusted: '&8{0}: &cLand {1} couldn''t pay taxes. They were removed.'
-          received: '&8{0}: &7Received total of ${1} taxes from lands -> balance =
-            ${2}'
+          warning: '&8{0}: &c{1}没有纳税'
+          untrusted: '&8{0}: &c{1}没有及时纳税，已被逐出联盟'
+          received: '&8{0}: &7收到的税款总计：{1}T，来自以下城镇 -> 款项=
+            {2}T'
   wars:
     nametag:
       enemy: '&c敌人 &8| '
       ally: '&a友军 &8| '
     object:
-      enemy: '&cEnemy'
-      ally: '&aAlly'
+      enemy: '&c敌人'
+      ally: '&a友军'
     state:
-      preparation: '&aPreparation'
-      fight: '&cFight'
+      preparation: '&a准备'
+      fight: '&c开战！'
   teleportation:
     bossbar: 请稍后，马上就好！
   area:
@@ -391,13 +388,13 @@ message:
       exists: '&c{area}已经存在{land}中，换个名字呗'
       max: '&c这个城镇被划分得四分五裂，已达{max}个区域的上限，不能再继续了！&m（除非氪金）'
   teleportation:
-    already: '&c你已在传送进程中，请等待动作完成。'
-    started: '&f传送已开始，需要花费&5 {sec} &f秒完成，请不要乱动。'
+    already: '&c你已在传送进程中，请等待动作完成'
+    started: '&f传送已开始，需要花费&5 {sec} &f秒完成，请不要乱动'
     cancelled: '&c啊！传送被取消，说好的不要乱动呢:('
     chunk: '#t#&9&l已传送{newline}'
-    plugin: '&c传送被神秘力量打断，但这不是你的问题。'
-    unsafe: '&c传送已取消,目的地不安全。'
-    corrected: '&f原始传送点不安全，传送移位到安全位置。'
+    plugin: '&c传送被神秘力量打断，但这不是你的问题'
+    unsafe: '&c传送已取消,目的地不安全'
+    corrected: '&f原始传送点不安全，传送移位到安全位置'
     cmd: '&cYou can''t use any commands while beeing teleported. &7Please wait another&5
       {sec} seconds &7until the teleportation has been finished.'
   flags:
@@ -473,28 +470,28 @@ command:
   help:
     help: '&f请使用/{cmd} help寻求帮助'
     cmd-not-exist: '&c指令不存在 :('
-    header: '[NoPrefix][T]&7----------&6<<<<&7-[H]&7单击此处回到到上一页。[/H][C]lands help {previous}[/C][/T]
-      &2城镇帮助 &7页码&3 {page} &8/&3 {pages} [T]&7-&6>>>>&7----------[H]&7单击此处前往下一页。[/H][C]lands
+    header: '[NoPrefix][T]&7----------&6<<<<&7-[H]&7单击此处回到到上一页[/H][C]lands help {previous}[/C][/T]
+      &2城镇帮助 &7页码&3 {page} &8/&3 {pages} [T]&7-&6>>>>&7----------[H]&7单击此处前往下一页[/H][C]lands
       help {next}[/C][/T]'
     footer: |
       [NoPrefix]
-      &7单击下面的箭头翻页。
-      [T]&7----------&6<<<<&7-[H]&7单击此处回到到上一页。[/H][C]lands help {previous}[/C][/T] &2城镇帮助 &7页码&3 {page} &8/&3 {pages} [T]&7-&6>>>>&7----------[H]&7单击此处前往下一页。[/H][C]lands help {next}[/C][/T]
+      &7单击下面的箭头翻页
+      [T]&7----------&6<<<<&7-[H]&7单击此处回到到上一页[/H][C]lands help {previous}[/C][/T] &2城镇帮助 &7页码&3 {page} &8/&3 {pages} [T]&7-&6>>>>&7----------[H]&7单击此处前往下一页[/H][C]lands help {next}[/C][/T]
   create:
     land-other: '&c作为所有者的你不能加入其他城镇，你需要先离开{land}先'
-    max-own: '&c你不能继续创建更多的城镇了，已达{max}个城镇上限。氪金吗？'
+    max-own: '&c你不能继续创建更多的城镇了，已达{max}个城镇上限氪金吗？'
     success: '&f花费了{cost}T，你现在是{land}的所有者啦！接下来你可以使用/Lands claim 扩张领地，也可以使用/Lands selection
-      选择区域进行扩张。'
+      选择区域进行扩张'
     broadcast: '&f{player}创建了{land}'
   rename:
     success: '&f成功为{land}易名为{name}，花费{cost}T'
   edit:
     success: '&f你进入城镇编辑模式，接下来如/Lands claim或/Lands trust均会在这片土地生效'
   selection:
-    not-complete: '&c抱歉，你的框选并不完整，请再确认两处锚点正确放置（左击/右击进行放置）。 若想退出框选模式，你可以执行/Lands selection退出。'
+    not-complete: '&c抱歉，你的框选并不完整，请再确认两处锚点正确放置（左击/右击进行放置） 若想退出框选模式，你可以执行/Lands selection退出'
     max: '&c你框选的区块太多啦，你框选了{current}个区块而极限为{max}个'
-    enabled: '&f你已开启框选模式，左击方块设置第一个锚点，右击设置第二个锚点。 在这之后你可以对选区使用以下命令：Claim， Assign， Unclaim，
-      Leave。'
+    enabled: '&f你已开启框选模式，左击方块设置第一个锚点，右击设置第二个锚点 在这之后你可以对选区使用以下命令：Claim， Assign， Unclaim，
+      Leave'
     disabled: '#t#&5框选模式{newline}&c已关闭'
     world: '&c两个锚点要在同一个世界，难道你想要扭曲空间吗？'
     pos:
@@ -504,7 +501,7 @@ command:
       two: '#t#&5&l框选模式{newline}&b&l锚点 2 &8-> &f已设置'
     area:
       conflicts: '&c发现{conflicts}与已经分配给{areas}的土地有冲突， 使用/Lands selection assgin {area}
-        confirm 确认区域覆盖范围。'
+        confirm 确认区域覆盖范围'
     expand:
       enabled: '&f已成功将你框选的区域扩展到所有Y轴'
       disabled: '&f你当前框选的区域不再扩展到所有Y轴'

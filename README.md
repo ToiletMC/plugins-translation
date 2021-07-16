@@ -26,4 +26,5 @@
 - Claim：占领
 - Unclaim：解除占领
 - Nation：联盟（盟友）
+- Upkeep : 维护费
 
